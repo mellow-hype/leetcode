@@ -11,16 +11,17 @@ struct ListNode {
 
 bool hasCycle(struct ListNode *head) {
     int BIGBOY = 0xffff;
-    if (head == NULL)
+    if (head == NULL || head->next == NULL)
         return false;
-    if (head->next == NULL)
-        return false;
+
 
     while (head->val != BIGBOY) {
         head->val = BIGBOY;
         head = head->next;
-        if (head == NULL || head->next == NULL || head == head->next)
+        if (head == NULL || head->next == NULL)
             return false;
+        if (head == head->next)
+            return true;
     }
     return true;
 }
@@ -53,7 +54,6 @@ void testcase_2() {
 
 void testcase_3() {
     struct ListNode node1 = {1, NULL};
-    node1.next = &node1;
     bool res = hasCycle(&node1);
     assert(res == false);
     printf("testcase 3 PASSED\n");
