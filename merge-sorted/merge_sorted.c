@@ -5,10 +5,9 @@
 
 
 // merge and sort two arrays
-void merge(int* nums1, int nums1_arrsize, int nums1Size, int* nums2, int nums2Size, int n){
-    // merge
+void merge(int* nums1, int nums1_arrsize, int m, int* nums2, int nums2Size, int n){
     for (int i = 0; i < nums2Size; i++) {
-        nums1[nums1Size + i] = nums2[i];
+        nums1[m + i] = nums2[i];
     }
 
     int other;
